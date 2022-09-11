@@ -1,14 +1,16 @@
 #!/bin/bash
 
+rm -r tmp/kafka-logs
+
 # Start Spark Cluster
-./../spark-3.3.0-bin-hadoop3/sbin/start-all.sh
+sh /usr/local/spark/sbin/start-all.sh --host localhost --port 7077 --webui-port 8080
 
 sleep 1
 
 # Start Zookeeper
-./../kafka_2.13-3.2.1/bin/zookeeper-server-start.sh ../kafka_2.13-3.2.1/config/zookeeper.properties &
+sh /usr/local/kafka/bin/zookeeper-server-start.sh /usr/local/kafka/config/zookeeper.properties &
 
 sleep 1
 
 # Start Kafka
-./../kafka_2.13-3.2.1/bin/kafka-server-start.sh ../kafka_2.13-3.2.1/config/server.properties &
+sh /usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties &
