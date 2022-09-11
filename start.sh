@@ -2,8 +2,12 @@
 
 rm -r tmp/kafka-logs
 
+for run in {1..10}; do
+  lsof -ti:2181 | xargs kill -9
+done
+
 # Start Spark Cluster
-sh /usr/local/spark/sbin/start-all.sh --host localhost --port 7077 --webui-port 8080
+sh /usr/local/spark/sbin/start-all.sh --host localhost --port 7077 --webui-port 8081
 
 sleep 1
 
