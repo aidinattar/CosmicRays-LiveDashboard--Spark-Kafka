@@ -7,7 +7,7 @@ for run in {1..10}; do
 done
 
 # Start Spark Cluster
-sh /usr/local/spark/sbin/start-all.sh --host localhost --port 7077 --webui-port 8081
+sh /usr/local/spark/sbin/start-all.sh
 
 sleep 1
 
